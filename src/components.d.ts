@@ -6,56 +6,32 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface KuklychAmbulanceWlList {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLKuklychAmbulanceWlListElement extends Components.KuklychAmbulanceWlList, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLKuklychAmbulanceWlListElement: {
+        prototype: HTMLKuklychAmbulanceWlListElement;
+        new (): HTMLKuklychAmbulanceWlListElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "kuklych-ambulance-wl-list": HTMLKuklychAmbulanceWlListElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface KuklychAmbulanceWlList {
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "kuklych-ambulance-wl-list": KuklychAmbulanceWlList;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "kuklych-ambulance-wl-list": LocalJSX.IntrinsicElements["kuklych-ambulance-wl-list"] & JSXBase.HTMLAttributes<HTMLKuklychAmbulanceWlListElement>;
         }
     }
 }
