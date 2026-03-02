@@ -6,10 +6,34 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface KuklychAmbulanceWlEditor {
+        "entryId": string;
+    }
     interface KuklychAmbulanceWlList {
     }
 }
+export interface KuklychAmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLKuklychAmbulanceWlEditorElement;
+}
 declare global {
+    interface HTMLKuklychAmbulanceWlEditorElementEventMap {
+        "editor-closed": string;
+    }
+    interface HTMLKuklychAmbulanceWlEditorElement extends Components.KuklychAmbulanceWlEditor, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLKuklychAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLKuklychAmbulanceWlEditorElement, ev: KuklychAmbulanceWlEditorCustomEvent<HTMLKuklychAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLKuklychAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLKuklychAmbulanceWlEditorElement, ev: KuklychAmbulanceWlEditorCustomEvent<HTMLKuklychAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLKuklychAmbulanceWlEditorElement: {
+        prototype: HTMLKuklychAmbulanceWlEditorElement;
+        new (): HTMLKuklychAmbulanceWlEditorElement;
+    };
     interface HTMLKuklychAmbulanceWlListElement extends Components.KuklychAmbulanceWlList, HTMLStencilElement {
     }
     var HTMLKuklychAmbulanceWlListElement: {
@@ -17,13 +41,24 @@ declare global {
         new (): HTMLKuklychAmbulanceWlListElement;
     };
     interface HTMLElementTagNameMap {
+        "kuklych-ambulance-wl-editor": HTMLKuklychAmbulanceWlEditorElement;
         "kuklych-ambulance-wl-list": HTMLKuklychAmbulanceWlListElement;
     }
 }
 declare namespace LocalJSX {
+    interface KuklychAmbulanceWlEditor {
+        "entryId"?: string;
+        "onEditor-closed"?: (event: KuklychAmbulanceWlEditorCustomEvent<string>) => void;
+    }
     interface KuklychAmbulanceWlList {
     }
+
+    interface KuklychAmbulanceWlEditorAttributes {
+        "entryId": string;
+    }
+
     interface IntrinsicElements {
+        "kuklych-ambulance-wl-editor": Omit<KuklychAmbulanceWlEditor, keyof KuklychAmbulanceWlEditorAttributes> & { [K in keyof KuklychAmbulanceWlEditor & keyof KuklychAmbulanceWlEditorAttributes]?: KuklychAmbulanceWlEditor[K] } & { [K in keyof KuklychAmbulanceWlEditor & keyof KuklychAmbulanceWlEditorAttributes as `attr:${K}`]?: KuklychAmbulanceWlEditorAttributes[K] } & { [K in keyof KuklychAmbulanceWlEditor & keyof KuklychAmbulanceWlEditorAttributes as `prop:${K}`]?: KuklychAmbulanceWlEditor[K] };
         "kuklych-ambulance-wl-list": KuklychAmbulanceWlList;
     }
 }
@@ -31,6 +66,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "kuklych-ambulance-wl-editor": LocalJSX.IntrinsicElements["kuklych-ambulance-wl-editor"] & JSXBase.HTMLAttributes<HTMLKuklychAmbulanceWlEditorElement>;
             "kuklych-ambulance-wl-list": LocalJSX.IntrinsicElements["kuklych-ambulance-wl-list"] & JSXBase.HTMLAttributes<HTMLKuklychAmbulanceWlListElement>;
         }
     }
