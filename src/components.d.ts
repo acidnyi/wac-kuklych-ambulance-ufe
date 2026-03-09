@@ -7,6 +7,8 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface KuklychAmbulanceWlApp {
+        "ambulanceId": string;
+        "apiBase": string;
         /**
           * @default ""
          */
@@ -16,6 +18,8 @@ export namespace Components {
         "entryId": string;
     }
     interface KuklychAmbulanceWlList {
+        "ambulanceId": string;
+        "apiBase": string;
     }
 }
 export interface KuklychAmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
@@ -75,6 +79,8 @@ declare global {
 }
 declare namespace LocalJSX {
     interface KuklychAmbulanceWlApp {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         /**
           * @default ""
          */
@@ -85,20 +91,28 @@ declare namespace LocalJSX {
         "onEditor-closed"?: (event: KuklychAmbulanceWlEditorCustomEvent<string>) => void;
     }
     interface KuklychAmbulanceWlList {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         "onEntry-clicked"?: (event: KuklychAmbulanceWlListCustomEvent<string>) => void;
     }
 
     interface KuklychAmbulanceWlAppAttributes {
         "basePath": string;
+        "apiBase": string;
+        "ambulanceId": string;
     }
     interface KuklychAmbulanceWlEditorAttributes {
         "entryId": string;
+    }
+    interface KuklychAmbulanceWlListAttributes {
+        "apiBase": string;
+        "ambulanceId": string;
     }
 
     interface IntrinsicElements {
         "kuklych-ambulance-wl-app": Omit<KuklychAmbulanceWlApp, keyof KuklychAmbulanceWlAppAttributes> & { [K in keyof KuklychAmbulanceWlApp & keyof KuklychAmbulanceWlAppAttributes]?: KuklychAmbulanceWlApp[K] } & { [K in keyof KuklychAmbulanceWlApp & keyof KuklychAmbulanceWlAppAttributes as `attr:${K}`]?: KuklychAmbulanceWlAppAttributes[K] } & { [K in keyof KuklychAmbulanceWlApp & keyof KuklychAmbulanceWlAppAttributes as `prop:${K}`]?: KuklychAmbulanceWlApp[K] };
         "kuklych-ambulance-wl-editor": Omit<KuklychAmbulanceWlEditor, keyof KuklychAmbulanceWlEditorAttributes> & { [K in keyof KuklychAmbulanceWlEditor & keyof KuklychAmbulanceWlEditorAttributes]?: KuklychAmbulanceWlEditor[K] } & { [K in keyof KuklychAmbulanceWlEditor & keyof KuklychAmbulanceWlEditorAttributes as `attr:${K}`]?: KuklychAmbulanceWlEditorAttributes[K] } & { [K in keyof KuklychAmbulanceWlEditor & keyof KuklychAmbulanceWlEditorAttributes as `prop:${K}`]?: KuklychAmbulanceWlEditor[K] };
-        "kuklych-ambulance-wl-list": KuklychAmbulanceWlList;
+        "kuklych-ambulance-wl-list": Omit<KuklychAmbulanceWlList, keyof KuklychAmbulanceWlListAttributes> & { [K in keyof KuklychAmbulanceWlList & keyof KuklychAmbulanceWlListAttributes]?: KuklychAmbulanceWlList[K] } & { [K in keyof KuklychAmbulanceWlList & keyof KuklychAmbulanceWlListAttributes as `attr:${K}`]?: KuklychAmbulanceWlListAttributes[K] } & { [K in keyof KuklychAmbulanceWlList & keyof KuklychAmbulanceWlListAttributes as `prop:${K}`]?: KuklychAmbulanceWlList[K] };
     }
 }
 export { LocalJSX as JSX };
