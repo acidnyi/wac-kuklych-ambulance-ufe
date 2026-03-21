@@ -54,6 +54,7 @@ export class KuklychAmbulanceWlApp {
       <Host>
         {element === "editor"
           ? <kuklych-ambulance-wl-editor entry-id={entryId}
+            ambulance-id={this.ambulanceId} api-base={this.apiBase}
             oneditor-closed={() => navigate("./list")} >
           </kuklych-ambulance-wl-editor>
           : <kuklych-ambulance-wl-list ambulance-id={this.ambulanceId} api-base={this.apiBase}
