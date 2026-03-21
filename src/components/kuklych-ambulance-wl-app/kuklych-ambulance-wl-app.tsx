@@ -37,6 +37,8 @@ export class KuklychAmbulanceWlApp {
   }
 
   render() {
+    console.debug("kuklych-ambulance-wl-app.render() - path: %s", this.relativePath);
+
     let element = "list"
     let entryId = "@new"
 
